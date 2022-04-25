@@ -7,14 +7,9 @@ export const CharacterCard: React.FC<SingleCharacterProps> = ({
   image,
   name,
 }) => {
-  const property = {
-    imageUrl: image,
-    imageAlt: `Image of ${name}`,
-    name: name,
-  };
   return (
     <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
-      <Image src={property.imageUrl} alt={property.imageAlt} />
+      <Image src={image} alt={`Image of ${name}`} />
       <Box p="6">
         <Box
           mt="1"
@@ -23,7 +18,7 @@ export const CharacterCard: React.FC<SingleCharacterProps> = ({
           lineHeight="tight"
           isTruncated
         >
-          {property.name}
+          {name}
         </Box>
       </Box>
     </Box>

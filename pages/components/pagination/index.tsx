@@ -19,8 +19,8 @@ export const Pagination: React.FC<PaginationTypes> = ({
   );
   const isFirst = currentPage === 1;
   const isLast = currentPage === totalPages;
-  const paginationFunc = (e: number) => {
-    e !== -1 ? (setCurrentPageNumber(e), setIsLoading(true)) : "";
+  const paginationFunc = (page: number) => {
+    page !== -1 ? (setCurrentPageNumber(page), setIsLoading(true)) : "";
   };
   useEffect(() => {
     getNeighbors(
