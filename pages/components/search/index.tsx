@@ -8,17 +8,19 @@ import useDebounce from "../../../hooks/useDebounce";
 export const Search: React.FC<SearchProps> = ({
   searchValue,
   setSearchValue,
+  setPage,
 }) => {
   const formik = useFormik({
     initialValues: {
       search: searchValue,
     },
     onSubmit: values => {
+      setPage(1)
       setSearchValue(values.search);
     },
   });
   const [value, setValue] = useState(searchValue);
-  const debouncedValue = useDebounce<string>(value, 1000);
+  const debouncedValue = useDebounce<string>(value, 600);
 
   useEffect(() => {
     formik.submitForm();

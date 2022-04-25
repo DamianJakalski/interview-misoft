@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Center, Flex, Text } from "@chakra-ui/react";
-import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
+import { useAppDispatch, useAppSelector } from "../../../hooks/useRedux";
 import {
   getCharactersList,
   selectCharacters,
@@ -17,11 +17,12 @@ export const CharactersContainer = () => {
   const [searchValue, setSearchValue] = useState("");
   useEffect(() => {
     dispatch(getCharactersList({ pageNumber: page, charName: searchValue }));
+    window.scrollTo(0, 0);
   }, [page, searchValue]);
   return (
     <>
       <Center marginTop="10">
-        <Search searchValue={searchValue} setSearchValue={setSearchValue} />
+        <Search searchValue={searchValue} setSearchValue={setSearchValue} setPage={setPage} />
       </Center>
       <Flex wrap="wrap" rowGap="8" padding="10" justifyContent="center" gap="4">
         {error ?? <Text>Something gone wrong...</Text>}

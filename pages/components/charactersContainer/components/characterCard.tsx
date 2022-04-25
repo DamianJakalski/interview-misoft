@@ -8,7 +8,7 @@ export const CharacterCard: React.FC<SingleCharacterProps> = ({
   name,
 }) => {
   return (
-    <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
+    <Box maxW="300px" borderWidth="1px" borderRadius="lg" overflow="hidden">
       <Image src={image} alt={`Image of ${name}`} />
       <Box p="6">
         <Box
